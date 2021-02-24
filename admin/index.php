@@ -28,7 +28,7 @@ function showPagesTable($link, $info = '') {
     $content .= '</table>';
     $title = 'pages admin panel';
 
-    include 'main.php';
+    include 'layout.php';
 }
 function deletePage($link) {
     if(isset($_GET['delete'])) {
@@ -40,7 +40,7 @@ function deletePage($link) {
         return false;
     }
     $title = 'pages admin panel';
-    include 'main.php';
+    include 'layout.php';
 }
 $isDeleted = deletePage($link);
 $info = '';
