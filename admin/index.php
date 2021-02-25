@@ -20,7 +20,7 @@ function showPagesTable($link, $info = '') {
         $content .= "<tr>
                     <td>{$page['title']}</td>
                     <td>{$page['url']}</td>
-                    <td><a href=''>edit</a></td>
+                    <td><a href=\"/admin/edit.php?edit={$page['id']}\">edit</a></td>
                     <td><a href=\"?delete={$page['id']}\">delete</a></td>
                 </tr>
                 ";
