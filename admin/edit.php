@@ -32,8 +32,8 @@ function getPageData($link, $info) {
 function editPage($link) {
     if(isset($_POST['title']) and isset($_POST['text'])) {
         $id = $_GET['edit'];
-        $title = $_POST['title'];
-        $text = $_POST['text'];
+        $title = mysqli_real_escape_string($link, $_POST['title']);
+        $text = mysqli_real_escape_string($link, $_POST['text']);
 
         $sql = "UPDATE pages SET title='$title', text='$text' WHERE id='$id'";
         mysqli_query($link, $sql) or die(mysqli_error($link));

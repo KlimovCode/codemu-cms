@@ -6,13 +6,13 @@ require_once '../db/connection.php';
 $link = mysqli_connect($host, $user, $password, $dbname);
 mysqli_query($link, "SET NAMES 'utf8'");
 
-function getPage($info) {
+function getPage($info, $link) {
     $title = 'pages admin panel';
 
     if(isset($_POST['title']) and isset($_POST['url']) and isset($_POST['text'])) {
-        $title = $_POST['title'];
-        $url = $_POST['url'];
-        $text = $_POST['text'];
+        $title = mysqli_real_escape_string($link, $_POST['title']);
+        $url = mysqli_real_escape_string($link, $_POST['url']);
+        $text = mysqli_real_escape_string($link, $_POST['text']);
     } else {
         $title = '';
         $url = '';
@@ -32,9 +32,9 @@ function getPage($info) {
 }
 function addPage($link) {
     if(isset($_POST['title']) and isset($_POST['url']) and isset($_POST['text'])) {
-        $title = $_POST['title'];
-        $url = $_POST['url'];
-        $text = $_POST['text'];
+        $title = mysqli_real_escape_string($link, $_POST['title']);
+        $url = mysqli_real_escape_string($link, $_POST['url']);
+        $text = mysqli_real_escape_string($link, $_POST['text']);
 
         $sql = "SELECT COUNT(*) as count FROM pages WHERE url='$url'";
         $result = mysqli_query($link, $sql) or die(mysqli_error($link));
@@ -54,7 +54,7 @@ function addPage($link) {
 }
 
 $info = addPage($link);
-getPage($info);
+getPage($info, $link);
 
 
 ?>
