@@ -26,7 +26,7 @@ function getPageData($link, $info) {
         <button type="submit">save</button>
     </form>';
 
-    include 'layout.php';
+    include 'partials/layout.php';
 }
 
 function editPage($link) {

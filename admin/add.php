@@ -28,7 +28,7 @@ function getPage($info, $link) {
         <button type="submit">Add</button>
     </form>';
 
-    include 'layout.php';
+    include 'partials/layout.php';
 }
 function addPage($link) {
     if(isset($_POST['title']) and isset($_POST['url']) and isset($_POST['text'])) {

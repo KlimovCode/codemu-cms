@@ -13,7 +13,7 @@
     <title><?= $title ?></title>
 </head>
 <body>
-    <?php include_once 'menu.php'?>
+    <?php include_once 'menu.php' ?>
     <?php if($info) echo $info ?>
     <?= $content ?>
 </body>
